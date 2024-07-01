@@ -1,54 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head lang='en'>
-  <meta charset='utf-8'>
-  <meta name='viewport' content='width=device-width'>
-  <title>SimpleMirror</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
-  <link rel="stylesheet" href="SimpleMirror.css">
-  <style>
-    html, body { height: 100%; margin: 0 auto; }
-    body { display: flex; flex-direction: column; }
-    #editor { flex: 1 1 auto; }
-    .menubar { position: sticky; top: 0; z-index: 1; background-color: white; }
-  </style>
-</head>
-<body>
-  <div id="editor"></span>
-  <script src='SimpleMirror.umd.js'></script>
-  <script>
-    new SimpleMirror({
-      selector: '#editor',
-      value: 'Please change this text',
-      config: {
-        h1: {
-          text: 'H1',
-          inputRule: /^#\s/
-        },
-        bold: {
-          className: 'material-icons',
-          text: 'format_bold',
-          shortcuts: ['Mod-b']
-        },
-        italic: {
-          className: 'material-icons',
-          text: 'format_italic',
-          shortcuts: ['Mod-i']
-        },
-        undo: {
-          shortcuts: ['Mod-z']
-        },
-        insertImage: {
-          className: 'material-icons',
-          text: 'insert_photo'
-        }
-      },
-      onChange: function(value) {
-        console.log(value)
+  <head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>SimpleMirror</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="SimpleMirror.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0 auto;
       }
-    })
-  </script>
-  </script>
-</body>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      #editor {
+        flex: 1 1 auto;
+      }
+      .menubar {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor"></div>
+    <script src="SimpleMirror.umd.js"></script>
+    <script>
+      new SimpleMirror({
+        selector: '#editor',
+        value: 'Please modify this text',
+        config: {
+          bold: {
+            className: 'material-symbols-outlined',
+            text: 'format_bold',
+            shortcuts: ['Mod-b']
+          },
+          italic: {
+            className: 'material-symbols-outlined',
+            text: 'format_italic',
+            shortcuts: ['Mod-i']
+          },
+          h1: {
+            text: 'format_h1',
+            className: 'material-symbols-outlined',
+            inputRule: /^#\s/
+          },
+          h2: {
+            text: 'format_h2',
+            className: 'material-symbols-outlined',
+            inputRule: /^##\s/
+          },
+          h3: {
+            text: 'format_h3',
+            className: 'material-symbols-outlined',
+            inputRule: /^###\s/
+          },
+          h4: {
+            text: 'format_h4',
+            className: 'material-symbols-outlined',
+            inputRule: /^####\s/
+          },
+          orderedList: {
+            className: 'material-symbols-outlined',
+            text: "format_list_bulleted",
+            inputRule: /^(\d+)\.\s$/
+          },
+          unorderedList: {
+            className: 'material-symbols-outlined',
+            text: "format_list_numbered",
+            inputRule: /^\s*([-+*])\s$/
+          },
+          indent: {
+            className: 'material-symbols-outlined',
+            text: "format_indent_increase",
+            shortcuts: ['Tab']
+          },
+          outdent: {
+            className: 'material-symbols-outlined',
+            text: "format_indent_decrease",
+            shortcuts: ['Shift-Tab']
+          },
+          quote: {
+            className: 'material-icons',
+            text: "format_quote",
+            inputRule: /^\s*>\s$/
+          },
+          insertImage: {
+            className: 'material-symbols-outlined',
+            text: "image",
+          },
+          undo: {
+            className: 'material-symbols-outlined',
+            text: "undo",
+            shortcut: ['Mod-z']
+          },
+          redo: {
+            className: 'material-symbols-outlined',
+            text: "redo",
+            shortcuts: ['Shift-Mod-z']
+          },
+          
+        },
+        onChange: function (value) {
+          console.log(value);
+        },
+      });
+    </script>
+  </body>
 </html>
